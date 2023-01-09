@@ -82,6 +82,11 @@ const Login = () => {
     navigate("/")
   }
 
+
+  const handleNewAccount = (e) => {
+    navigate("/register")
+  }
+
   return (
     <Container>
       <Wrapper>
@@ -96,10 +101,12 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+          <Button onClick={handleClick} disabled={isFetching}>
+            LOGIN
+          </Button>
           {error && <Error>Something went wrong. Please try again.</Error>}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Link onClick={handleNewAccount}>CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>
