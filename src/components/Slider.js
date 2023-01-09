@@ -3,6 +3,7 @@ import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { useState } from "react";
 import { sliderItems } from "../data"
+import { useNavigate } from "react-router-dom";
 
 //check out props for styled components that allow you to separate different arrows. direction is a prop, left or right.
 //issues: figure out why the left one cannot be moved 10px to the left. 
@@ -85,6 +86,8 @@ const Button = styled.button`
 
 const Slider = () => {
 
+  const navigate = useNavigate();
+
     const [slideIndex, setSlideIndex] = useState(0);
 
     const handleClick = (direction) => {
@@ -94,8 +97,13 @@ const Slider = () => {
             setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0)
         }
     }
+
+    const handleMenu = () => {
+      navigate("/products/Monitor");
+    };
+
   return (
-    <Container >
+    <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
         <ArrowLeftOutlinedIcon />
       </Arrow>
@@ -103,12 +111,12 @@ const Slider = () => {
         {sliderItems.map((item) => (
           <Slide bg={item.bg} key={item.id}>
             <ImageContainer>
-              <Image src={item.img} alt={item.alt}/>
+              <Image src={item.img} alt={item.alt} />
             </ImageContainer>
             <InfoContainer>
               <Title>{item.title}</Title>
               <Description>{item.description}</Description>
-              <Button>SHOP NOW</Button>
+              <Button onClick={handleMenu}>SHOP NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
