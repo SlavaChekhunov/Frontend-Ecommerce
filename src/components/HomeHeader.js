@@ -5,11 +5,14 @@ import Slider from "./Slider";
 
 const Header = ({mainID}) => {
     return (
-        <header>
-            <Announcement message={"Welcome to Canada Hardware! Buy one and get one free."} mainID={mainID} />
-            <Navbar />
-            <Slider />
-        </header>
+      <header>
+        <Announcement
+          message={"Welcome to Canada Hardware - Holiday savings on now!"}
+          mainID={mainID}
+        />
+        <Navbar />
+        <Slider />
+      </header>
     );
 };
 export default Header;

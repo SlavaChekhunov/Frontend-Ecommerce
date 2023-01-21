@@ -4,17 +4,19 @@ import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { useState } from "react";
 import { sliderItems } from "../data"
 import { useNavigate } from "react-router-dom";
+import { mobile, tablet, smallDesktop } from "../responsive";
 
 //check out props for styled components that allow you to separate different arrows. direction is a prop, left or right.
 //issues: figure out why the left one cannot be moved 10px to the left. 
 
 const Container = styled.div`
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    padding-left: 5px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  padding-left: 5px;
+  ${mobile({ display: "none" })}
 `;
 
 const Wrapper = styled.div`

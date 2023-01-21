@@ -7,6 +7,7 @@ import PinterestIcon from '@mui/icons-material/Pinterest';
 import PlaceIcon from '@mui/icons-material/Place';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.footer`
 `
@@ -101,6 +102,32 @@ const ContactItem = styled.li`
 `
 const Payment = styled.img``
 const Footer = () => {
+
+const navigate = useNavigate();
+
+const handleClickHome = () => {
+  navigate("/");
+};
+const handleClickGPU = () => {
+  navigate("/products/GPU");
+};
+const handleClickCPU = () => {
+  navigate("/products/CPU");
+};
+const handleClickMonitor = () => {
+  navigate("/products/Monitor");
+};
+const handleClickCart = () => {
+  navigate("/cart");
+};
+const handleClickAccount = () => {
+  navigate("/login");
+};
+const handleClickOrder = () => {
+  navigate("/cart");
+};
+
+
     return (
       <>
         <Container>
@@ -137,28 +164,29 @@ const Footer = () => {
               <Center>
                 <Title>Site Map</Title>
                 <List>
-                  <ListItem>Home</ListItem>
-                  <ListItem>Cart</ListItem>
-                  <ListItem>Monitors</ListItem>
-                  <ListItem>Desktop Accessories</ListItem>
-                  <ListItem>GPUs</ListItem>
-                  <ListItem>My Account</ListItem>
-                  <ListItem>Order Tracking</ListItem>
-                  <ListItem>Wishlist</ListItem>
-                  <ListItem>Careers</ListItem>
-                  <ListItem>Terms</ListItem>
+                  <ListItem onClick={handleClickHome}>Home</ListItem>
+                  <ListItem onClick={handleClickCart}>Cart</ListItem>
+                  <ListItem onClick={handleClickMonitor}>Monitors</ListItem>
+                  <ListItem onClick={handleClickCPU}>
+                    CPUs
+                  </ListItem>
+                  <ListItem onClick={handleClickGPU}>GPUs</ListItem>
+                  <ListItem onClick={handleClickAccount}>My Account</ListItem>
+                  <ListItem onClick={handleClickOrder}>Order Tracking</ListItem>
+                  <ListItem onClick={handleClickCart}>Wishlist</ListItem>
+                  <ListItem onClick={handleClickHome}>Careers</ListItem>
+                  <ListItem onClick={handleClickHome}>Terms</ListItem>
                 </List>
               </Center>
               <Right>
                 <Title>Contact</Title>
                 <ContactList>
                   <ContactItem>
-                    <PlaceIcon />{" "}
-                    <p>5151 Yonge Street, Toronto, ON M1K 6P3</p>
+                    <PlaceIcon /> <p>5151 Yonge Street, Toronto, ON M1K 6P3</p>
                   </ContactItem>
                   <ContactItem>
                     <PhoneIcon />
-                    <p>+1 234 56 78</p>
+                    <p>+1 516 555 5555</p>
                   </ContactItem>
                   <ContactItem>
                     <MailOutlineIcon />
