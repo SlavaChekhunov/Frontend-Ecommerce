@@ -44,6 +44,7 @@ const List = styled.ul`
 const ListItem = styled.li`
     flex-basis: 49%;
     margin-bottom: 10px;
+    cursor: pointer;
 `
 
 const Right = styled.ul`
