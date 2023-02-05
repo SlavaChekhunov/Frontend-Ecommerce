@@ -1,4 +1,4 @@
-import santaHatImg from "./assets/canada-hardware-logo-santa-hat.webp";
+import santaHatImg from "./assets/canada-hardware-logo-santa-hat.svg";
 import gpuImg from "./assets/evga-3090.webp";
 import cpuImg from "./assets/ryzen-zen-4.webp";
 
@@ -27,7 +27,7 @@ export const sliderItems = [
     alt: "EDVGA XC3 Ultra GeForce RTX 3090 GPU",
     title: "GPUs finally in stock",
     description: "GREAT VALUE FOR LAST GEN OF GPUS GOING UNDER MRSP!",
-    bg: "faefef",
+    bg: "e2fee2",
   },
 ];
 

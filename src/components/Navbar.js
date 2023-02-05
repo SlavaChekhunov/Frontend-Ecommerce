@@ -6,18 +6,23 @@ import { Badge } from "@mui/material";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { mobile, tablet, smallDesktop } from "../responsive";
+import { mobile} from "../responsive";
 
 const Container = styled.div`
   min-height: 40px;
   position: relative;
 `;
+
 const Wrapper = styled.div`
   width: 90%;
   max-width: 1400px;
   margin: 0 auto;
-  ${mobile({ padding: "10px 0px" })}
+  ${mobile({
+    padding: "10px 0px",
+    width: "95%",
+  })}
 `;
+
 const NavigationMenu = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -27,15 +32,22 @@ const NavigationMenu = styled.nav`
   z-index: 20;
   ${mobile({ height: "auto" })}
 `;
+
 const Left = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
-  ${mobile({ justifyContent: "center" })}
+  justify-content: space-between;
+  ${mobile({
+    justifyContent: "flex-start",
+  })}
 `;
-const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
+
+const Logo = styled.img`
+  max-width: 20%;
+  height: auto;
+  flex-basis: 34%;
+  margin: 5px 0;
   ${mobile({
     position: "absolute",
     width: "1px",
@@ -48,24 +60,55 @@ const Language = styled.span`
     overflow: "hidden",
   })}
 `;
+
+const Language = styled.span`
+  font-size: 14px;
+  cursor: pointer;
+  flex-basis: 9%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 10px;
+  ${mobile({
+    position: "absolute",
+    width: "1px",
+    height: "1px",
+    margin: "-1px",
+    border: "0",
+    padding: "0",
+    clipPath: "inset(100%)",
+    clip: "rect(0 0 0 0)",
+    overflow: "hidden",
+  })}
+`;
+
 const SearchForm = styled.form`
   margin: 0;
   padding: 0;
+  flex-basis: 34%;
 `;
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgrey;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-  ${mobile({ margin: "0 5px" })}
-`;
+
 const Input = styled.input`
   border: none;
-  outline-width: 0;
+  outline: none;
+  flex-basis: calc(89% - 10px)
+  &::placeholder {
+    color: black;
+    opacity: 1;
+    webkit-opacity: 1;
+  }
+`;
+
+const SearchContainer = styled.div`
+  border: 0.5px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  max-width: calc(100% - 10px);
+
   ${mobile({
-    maxWidth: "75px",
-    fontSize: "0.9rem",
+    margin: "0",
+    justifyContent: "flex-start",
   })}
 `;
 
@@ -81,12 +124,16 @@ const SearchLabel = styled.label`
   clip: rect(0 0 0 0);
   overflow: hidden;
 `;
+
 const Center = styled.div`
   flex: 1;
   text-align: center;
+  align-content: center;
   display: flex;
   justify-content: center;
+  ${mobile({ justifyContent: "flex-end" })}
 `;
+
 const SiteTitle = styled.h1`
   font-weight: bold;
   color: #d80621;
@@ -97,42 +144,33 @@ const SiteTitle = styled.h1`
     margin: "0",
   })}
 `;
+
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   ${mobile({
     justifyContent: "center",
     marginTop: "10px",
-    flex: "2",
   })}
 `;
+
 const MenuItem = styled.div`
   font-size: 1.25rem;
   cursor: pointer;
-  flex: 1;
   display: flex;
-  justify-content: center;
-  padding: 0 25px;
+  flex-basis: 32%;
+  align-content: center;
+  padding: 0;
   text-decoration: none;
-  ${mobile({ fontSize: "1rem" })}
-`;
 
-const Logo = styled.img`
-  max-width: 50%;
-  height: auto;
-  padding-right: 100px;
+  &:last-child {
+    justify-content: flex-end;
+  }
   ${mobile({
-    position: "absolute",
-    width: "1px",
-    height: "1px",
-    margin: "-1px",
-    border: "0",
-    padding: "0",
-    "clip-path": "inset(100%)",
-    clip: "rect(0 0 0 0)",
-    overflow: "hidden",
+    fontSize: "1rem",
+    minWidth: "60px",
   })}
 `;
 

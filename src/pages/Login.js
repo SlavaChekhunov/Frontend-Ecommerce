@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { React, useState } from "react";
 import styled from "styled-components";
 import { login } from "../redux/apiCalls";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../hooks";
 import { useNavigate } from "react-router-dom";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -23,6 +24,9 @@ const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background-color: white;
+  ${mobile({
+    width: "85%",
+  })}
 `;
 
 const Title = styled.h1`
@@ -51,7 +55,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
   &:disabled {
-    color: green;
+    color: white;
     cursor: not-allowed;
   }
 `;
@@ -70,22 +74,17 @@ const Error = styled.span`
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+  const [loading] = useState(false);
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const {isFetching, error} = useSelector(state=>state.user)
-
+  const { error } = useAppSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
-    login(dispatch, {username, password});
-    navigate("/")
-  }
-
-
-  const handleNewAccount = (e) => {
-    navigate("/register")
-  }
+    login(dispatch, { username, password });
+    navigate("/");
+  };
 
   return (
     <Container>
@@ -101,12 +100,16 @@ const Login = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handleClick} disabled={isFetching}>
-            LOGIN
+          <Button onClick={handleClick} disabled={!username || !password}>
+            {loading ? "Loading..." : "LOGIN"}
           </Button>
-          {error && <Error>Something went wrong. Please try again.</Error>}
+          {error && (
+            <Error data-testid="error">
+              Something went wrong. Please try again.
+            </Error>
+          )}
           <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link onClick={handleNewAccount}>CREATE A NEW ACCOUNT</Link>
+          <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>

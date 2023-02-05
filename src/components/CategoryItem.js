@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import React from "react";
 import { Link } from "react-router-dom";
-import { mobile, tablet, smallDesktop } from "../responsive";
+import { mobile } from "../responsive";
 
 const Container = styled.li`
   flex: 1;
   margin: 3px;
   min-height: 70vh;
   position: relative;
-  ${mobile({ minHeight: "25vh" })}
+  ${mobile({
+    minHeight: "25vh",
+    width: "100%",
+    margin: "3px auto",
+  })}
 `;
 const Image = styled.img`
   max-width: 100%;

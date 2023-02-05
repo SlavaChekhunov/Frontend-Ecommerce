@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import AddIcon from "@mui/icons-material/Add";
@@ -143,12 +144,8 @@ const Product = () => {
     }
   };
 
-
-
   const handleClick = () => {
-    dispatch(
-      addProduct({ ...product, quantity, color, size })
-    );
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
@@ -165,9 +162,9 @@ const Product = () => {
           <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
+              <FilterTitle>Colour</FilterTitle>
               {product.color?.map((c) => (
-                <FilterColor color={c} key={c} onClick={()=>setColor(c)}/>
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
               ))}
               ;
             </Filter>
